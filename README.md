@@ -42,8 +42,8 @@ Sixfinger API delivers responses 10-20x faster than popular AI services like Ope
 ---
 
 ## 📚 Getting Started
-- 🎯 [Start for Free](https://sfapi.pythonanywhere.com.)
-- 📖 [Documentation](https://sfapi.pythonanywhere.com./docs)
+- 🎯 [Start for Free](https://sfapi.pythonanywhere.com)
+- 📖 [Documentation](https://sfapi.pythonanywhere.com/docs)
 
 ---
 
