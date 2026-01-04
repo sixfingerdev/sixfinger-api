@@ -1,8 +1,8 @@
 
 
-# ⚡ Sixfinger API - 10-20x Faster AI Chat API. includes 9 models
+# ⚡ Sixfinger API - 10-20x Faster AI Chat API. includes 13 models now!
 
-Sixfinger API delivers responses 10-20x faster than popular AI services like OpenAI GPT-4 or Claude, giving you access to 9 powerful AI models—including Meta Llama 3.3 70B, Qwen3 32B, and GPT-OSS 120B—with real-time streaming and Turkish-optimized models.
+Sixfinger API delivers responses 10-20x faster than popular AI services like OpenAI GPT-4 or Claude, giving you access to 9 powerful AI models—including Meta Llama 3.3 70B, Qwen3 32B, GPT-4.1-NANO, LLAMA Maverick, DeepSeek-R1 and GPT-OSS 120B—with real-time streaming and Turkish-optimized models.
 
 ---
 ![PyPI](https://img.shields.io/pypi/v/sixfinger)
@@ -12,7 +12,7 @@ Sixfinger API delivers responses 10-20x faster than popular AI services like Ope
 
 ## 🚀 Features
 - ⚡ Ultra-fast: ~1,100 characters/sec
-- 🤖 9 powerful AI models:
+- 🤖 13 powerful AI models:
   - Meta Llama 3.3 70B
   - Llama 4 Series
   - Qwen3 32B (Turkish-optimized)
