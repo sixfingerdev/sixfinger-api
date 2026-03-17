@@ -1,6 +1,9 @@
-# ⚡ Sixfinger API
+<p align="center">
+  <img src="https://sfapi.pythonanywhere.com/static/sixfinger-logo.jpg" width="100" />
+</p>
 
-**Single API. 10 models. 10-20x faster than OpenAI & Claude.**
+<h1 align="center">Sixfinger API</h1>
+<p align="center"><strong>Single API. 10 models. 10-20x faster than OpenAI & Claude.</strong></p>
 
 Sixfinger is a production-ready AI gateway that routes your requests to the best available models — with streaming, plan-based access control, and Turkish-optimized options built in.
 
