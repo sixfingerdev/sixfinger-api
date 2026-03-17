@@ -1,132 +1,127 @@
-# Sixfinger API
+# ⚡ Sixfinger API
 
-Private AI gateway with user management, plan enforcement, usage tracking, and multi-provider model routing.
+**Single API. 10 models. 10-20x faster than OpenAI & Claude.**
 
-> Repository is proprietary and not intended for open-source redistribution.
+Sixfinger is a production-ready AI gateway that routes your requests to the best available models — with streaming, plan-based access control, and Turkish-optimized options built in.
 
----
-URL: https://sfapi.pythonanywhere.com/
-
----
-
-## Plans
-
-| Plan    | Price  | Requests/mo | Tokens/mo  | Max tokens/req |
-|---------|-------:|------------:|-----------:|---------------:|
-| Free    | $0     | 200         | 20,000     | 100            |
-| Starter | $79    | 3,000       | 300,000    | 500            |
-| Pro     | $199   | 75,000      | 7,500,000  | 1,500          |
-| Plus    | $499   | 500,000     | 50,000,000 | 3,000          |
-
-All plans support streaming.
+[![Free Plan](https://img.shields.io/badge/Free%20Plan-Available-brightgreen)](https://sfapi.pythonanywhere.com)
+[![Models](https://img.shields.io/badge/Models-10-blue)](https://sfapi.pythonanywhere.com/docs)
+[![Streaming](https://img.shields.io/badge/Streaming-SSE-orange)](https://sfapi.pythonanywhere.com/docs)
+[![Turkish](https://img.shields.io/badge/Turkish-Optimized-red)](https://sfapi.pythonanywhere.com)
 
 ---
 
-## Models
+## 🚀 Why Sixfinger?
 
-| Key               | Display Name        | Size  | Language       | Plans              |
-|-------------------|---------------------|-------|----------------|--------------------|
-| llama-8b-instant  | Llama 3.1 8B Instant| 8B    | Multilingual   | free+              |
-| allam-2-7b        | Allam 2 7B          | 7B    | Turkish/Arabic | free+              |
-| gpt4-nano         | GPT-4.1 Nano        | Nano  | Multilingual   | starter+           |
-| qwen3-32b         | Qwen3 32B           | 32B   | Turkish/Chinese| starter+           |
-| llama-70b         | Llama 3.3 70B       | 70B   | Multilingual   | starter+           |
-| llama-maverick-17b| Llama Maverick 17B  | 17B   | Multilingual   | starter+           |
-| llama-scout-17b   | Llama Scout 17B     | 17B   | Multilingual   | starter+           |
-| gpt-oss-20b       | GPT-OSS 20B         | 20B   | Multilingual   | starter+           |
-| gpt-oss-120b      | GPT-OSS 120B        | 120B  | Multilingual   | pro+               |
-| kimi-k2           | Kimi K2             | -     | Chinese        | pro+               |
+| Provider | Speed |
+|----------|-------|
+| **Sixfinger API** | **~1,100 char/s** |
+| Claude-class APIs | ~80–120 char/s |
+| Typical GPT APIs | ~50–100 char/s |
+
+One key. One endpoint. No provider switching.
 
 ---
 
-## Public API
+## ⚡ Quick Start
 
-### Chat
-
-```
-POST https://sfapi.pythonanywhere.com/api/v1/chat
-X-API-Key: <key>
+```bash
+curl -X POST https://sfapi.pythonanywhere.com/api/v1/chat \
+  -H "X-API-Key: YOUR_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"message": "Hello!", "model": "llama-8b-instant", "stream": false}'
 ```
 
 ```json
 {
-  "message": "Hello",
-  "model": "llama-8b-instant",
-  "max_tokens": 100,
-  "temperature": 0.7,
-  "stream": false
-}
-```
-
-Response:
-
-```json
-{
-  "response": "...",
+  "response": "Hello! How can I help you?",
   "model_key": "llama-8b-instant",
-  "usage": { "total_tokens": 42 }
+  "usage": { "total_tokens": 12 }
 }
 ```
 
-### Usage Stats
+**Streaming (SSE):**
 
-```
-GET /api/v1/stats
-X-API-Key: <key>
-```
+```python
+import requests
 
-### Health
+url = "https://sfapi.pythonanywhere.com/api/v1/chat"
+headers = {"X-API-Key": "YOUR_KEY", "Content-Type": "application/json"}
+body = {"message": "Tell me a story", "model": "llama-70b", "stream": True}
 
-```
-GET /health
+with requests.post(url, headers=headers, json=body, stream=True) as r:
+    for chunk in r.iter_content(chunk_size=None):
+        print(chunk.decode(), end="", flush=True)
 ```
 
 ---
 
-## Backend API (Internal)
+## 🤖 Available Models
 
-Direct model dispatch — called by the Flask layer, not by end users.
-
-| Method | Path              | Description                     |
-|--------|-------------------|---------------------------------|
-| GET    | /health           | Provider health check           |
-| POST   | /api/chat         | Non-streaming chat              |
-| POST   | /api/chat/stream  | SSE streaming chat              |
-| GET    | /api/models       | Models available for a plan     |
-| GET    | /api/providers    | Active provider list            |
-
-Headers used by the Flask layer:
-
-- `X-User-Plan` — user's current plan (free / starter / pro / plus)
-- `X-Model` — preferred model key (optional)
+| Key | Model | Size | Language | Plan |
+|-----|-------|------|----------|------|
+| `llama-8b-instant` | Llama 3.1 8B Instant | 8B | Multilingual | Free+ |
+| `allam-2-7b` | Allam 2 7B | 7B | Turkish / Arabic | Free+ |
+| `gpt4-nano` | GPT-4.1 Nano | Nano | Multilingual | Starter+ |
+| `qwen3-32b` | Qwen3 32B ⭐ | 32B | Turkish / Chinese | Starter+ |
+| `llama-70b` | Llama 3.3 70B | 70B | Multilingual | Starter+ |
+| `llama-maverick-17b` | Llama Maverick 17B | 17B | Multilingual | Starter+ |
+| `llama-scout-17b` | Llama Scout 17B | 17B | Multilingual | Starter+ |
+| `gpt-oss-20b` | GPT-OSS 20B | 20B | Multilingual | Starter+ |
+| `gpt-oss-120b` | GPT-OSS 120B | 120B | Multilingual | Pro+ |
+| `kimi-k2` | Kimi K2 | — | Chinese | Pro+ |
 
 ---
 
-## Features
+## 💎 Plans
 
-### Identity & Access
-- Register, email verify, login, forgot/reset password, resend verification
-- Session-backed dashboard
-- API key issuance and regeneration
+| Plan | Price | Requests/mo | Tokens/mo | RPM |
+|------|------:|------------:|----------:|----:|
+| Free | 0 TRY | 200 | 20,000 | 3 |
+| Starter | 79 TRY | 3,000 | 300,000 | 15 |
+| Pro | 199 TRY | 75,000 | 7,500,000 | 50 |
+| Plus | 499 TRY | 500,000 | 50,000,000 | 150 |
 
-### Plan & Usage Enforcement
-- Per-plan model eligibility
-- Rate limits: per-minute, per-hour, per-day, per-month
-- Monthly token cap
-- Bonus requests and tokens
-- Plan upgrade requests with admin approval
-- Automatic downgrade on expiry
+All plans include streaming. [Start free →](https://sfapi.pythonanywhere.com)
 
-### Growth
-- Referral code generation
-- Signup and paid-conversion rewards
-- Bonus history
+---
 
-### Operations
-- Rotating file logs
-- DB + backend health checks
-- Admin panel (user list, plan distribution, upgrade actions)
-- HTTPS enforcement in production
-- CORS allowlist, HSTS, security headers
-- Brute-force protection on login
-- API key gating on data endpoints
+## 🔑 Get Your API Key
+
+1. Sign up at [sfapi.pythonanywhere.com](https://sfapi.pythonanywhere.com)
+2. Verify your email
+3. Grab your API key from the dashboard
+
+---
+
+## 🛠 What You Can Build
+
+- **Support bots** — low-latency streaming responses with plan-safe limits
+- **Coding assistants** — route heavy tasks to GPT-OSS or larger model tiers
+- **Multilingual apps** — Turkish-focused and multilingual models under one key
+- **Content pipelines** — scale generation with usage analytics and upgrade paths
+- **Internal automation** — summarization, tagging, classification bots
+
+---
+
+## 📖 Documentation
+
+Full API docs at [sfapi.pythonanywhere.com/docs](https://sfapi.pythonanywhere.com/docs)
+
+**Endpoints:**
+
+```
+POST /api/v1/chat     — Chat (stream or sync)
+GET  /api/v1/stats    — Usage stats
+GET  /health          — Health check
+```
+
+---
+
+## 📬 Contact
+
+**sixfingerdev@gmail.com** · Built by [@sixfingerdev](https://github.com/sixfingerdev)
+
+---
+
+⭐ **If this saved you time, a star helps a lot!**
