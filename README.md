@@ -3,12 +3,12 @@
 </p>
 
 <h1 align="center">Sixfinger API</h1>
-<p align="center"><strong>Single API. 16 models. 10-20x faster than typical direct endpoints.</strong></p>
+<p align="center"><strong>Single API. 19 models. 10-20x faster than typical direct endpoints.</strong></p>
 
 Sixfinger is a production-ready AI gateway that routes requests to the best available model family with streaming, plan-aware access control, and multilingual performance built in.
 
 [![Free Plan](https://img.shields.io/badge/Free%20Plan-Available-brightgreen)](https://sfapi.pythonanywhere.com)
-[![Models](https://img.shields.io/badge/Models-16-blue)](https://sfapi.pythonanywhere.com/docs)
+[![Models](https://img.shields.io/badge/Models-19-blue)](https://sfapi.pythonanywhere.com/docs)
 [![Streaming](https://img.shields.io/badge/Streaming-SSE-orange)](https://sfapi.pythonanywhere.com/docs)
 [![No Daily Cap](https://img.shields.io/badge/Daily%20Cap-Removed-success)](https://sfapi.pythonanywhere.com)
 
@@ -26,19 +26,19 @@ One key. One endpoint. No provider switching.
 
 ---
 
-## ⚡ Quick Start
+## Quick Start
 
 ```bash
 curl -X POST https://sfapi.pythonanywhere.com/api/v1/chat \
   -H "X-API-Key: YOUR_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"message": "Hello!", "model": "gpt54-nano", "stream": false}'
+  -d '{"message": "Hello!", "model": "llama-8b-instant", "stream": false}'
 ```
 
 ```json
 {
   "response": "Hello! How can I help you?",
-  "model_key": "gpt54-nano",
+  "model_key": "llama-8b-instant",
   "usage": { "total_tokens": 12 }
 }
 ```
@@ -50,7 +50,7 @@ import requests
 
 url = "https://sfapi.pythonanywhere.com/api/v1/chat"
 headers = {"X-API-Key": "YOUR_KEY", "Content-Type": "application/json"}
-body = {"message": "Tell me a story", "model": "gpt54-nano", "stream": True}
+body = {"message": "Tell me a story", "model": "llama-8b-instant", "stream": True}
 
 with requests.post(url, headers=headers, json=body, stream=True) as r:
     for chunk in r.iter_content(chunk_size=None):
@@ -59,30 +59,33 @@ with requests.post(url, headers=headers, json=body, stream=True) as r:
 
 ---
 
-## 🤖 Available Models
+## Available Models
 
 | Key | Model | Size | Language | Plan |
 |-----|-------|------|----------|------|
 | `llama-8b-instant` | Llama 3.1 8B Instant | 8B | Multilingual | Free+ |
 | `allam-2-7b` | Allam 2 7B | 7B | Turkish / Arabic | Free+ |
-| `gpt54-nano` | GPT-5.4 Nano | Nano | Multilingual | Free+ |
-| `step-3.5-flash` | Step 3.5 Flash | - | Multilingual | Free+ |
+| `step-3.5-flash` | Step 3.5 Flash | — | Multilingual | Free+ |
 | `nemotron-3-super-120b-a12b` | Nemotron 3 Super 120B A12B | 120B | Multilingual | Free+ |
+| `big-pickle` | GLM-4.6 | — | Multilingual | Free+ |
+| `deepseek-v4-flash-free` | DeepSeek V4 Flash | — | Multilingual | Free+ |
+| `mimo-v2.5-free` | Mimo V2.5 | — | Multilingual | Free+ |
+| `north-mini-code-free` | North Mini Code | — | Multilingual | Free+ |
+| `nemotron-3-ultra-free` | Nemotron 3 Ultra | — | Multilingual | Free+ |
 | `gpt4-nano` | GPT-4.1 Nano | Nano | Multilingual | Starter+ |
-| `qwen3-32b` | Qwen3 32B ⭐ | 32B | Turkish / Chinese | Starter+ |
+| `qwen3-32b` | Qwen3 32B | 32B | Turkish / Chinese | Starter+ |
 | `llama-70b` | Llama 3.3 70B | 70B | Multilingual | Starter+ |
-| `llama-maverick-17b` | Llama Maverick 17B | 17B | Multilingual | Starter+ |
 | `llama-scout-17b` | Llama Scout 17B | 17B | Multilingual | Starter+ |
+| `llama-pg2-86m` | Llama Prompt Guard 2 86M | 86M | Multilingual | Starter+ |
 | `gpt-oss-20b` | GPT-OSS 20B | 20B | Multilingual | Starter+ |
-| `glm-4.5-air` | GLM 4.5 Air | - | Multilingual | Starter+ |
-| `qwen3-coder` | Qwen3 Coder | - | Multilingual | Starter+ |
+| `glm-4.5-air` | GLM 4.5 Air | — | Multilingual | Starter+ |
+| `qwen3-coder` | Qwen3 Coder | — | Multilingual | Starter+ |
 | `lfm-2.5-1.2b-thinking` | LFM 2.5 1.2B Thinking | 1.2B | Multilingual | Starter+ |
 | `gpt-oss-120b` | GPT-OSS 120B | 120B | Multilingual | Pro+ |
-| `kimi-k2` | Kimi K2 | — | Chinese | Pro+ |
 
 ---
 
-## 💎 Plans
+## Plans
 
 | Plan | Price | Requests/mo | Tokens/mo | RPM | RPH |
 |------|------:|------------:|----------:|----:|----:|
@@ -95,7 +98,7 @@ All plans include streaming and monthly quota tracking without daily caps. [Star
 
 ---
 
-## 🔑 Get Your API Key
+## Get Your API Key
 
 1. Sign up at [sfapi.pythonanywhere.com](https://sfapi.pythonanywhere.com)
 2. Verify your email
@@ -106,31 +109,39 @@ All plans include streaming and monthly quota tracking without daily caps. [Star
 ## 🛠 What You Can Build
 
 - **Support bots** - low-latency streaming responses with plan-safe quotas
-- **Coding assistants** - route heavy tasks to GPT-OSS or coding-focused models
+- **Coding assistants** - route heavy tasks to GPT-OSS, Qwen3 Coder, or Cohere's North Mini Code
 - **Multilingual apps** - Turkish-focused and multilingual models under one key
 - **Content pipelines** - scale generation with usage analytics and upgrade paths
 - **Internal automation** - summarization, tagging, and classification bots
+- **Reasoning workloads** - step, DeepSeek, and Nemotron models for chain-of-thought tasks
 
 ---
 
-## 📖 Documentation
+## Documentation
 
 Full API docs at [sfapi.pythonanywhere.com/docs](https://sfapi.pythonanywhere.com/docs)
 
 **Endpoints:**
 
 ```
-POST /api/v1/chat     — Chat (stream or sync)
-GET  /api/v1/stats    — Usage stats
-GET  /health          — Health check
+POST /api/v1/chat                              — Chat (stream or sync)
+GET  /api/v1/stats                             — Usage stats
+GET  /api/v1/conversations                     — List conversations
+POST /api/v1/conversations                     — Create conversation
+GET  /api/v1/conversations/:id                 — Get conversation
+PATCH /api/v1/conversations/:id                — Update conversation
+DELETE /api/v1/conversations/:id               — Delete conversation
+POST /api/v1/conversations/:id/chat            — Chat within a conversation
+GET  /api/v1/conversations/:id/messages        — List messages in a conversation
+GET  /health                                   — Health check
 ```
 
 ---
 
-## 📬 Contact
+## Contact
 
 **sixfingerdev@gmail.com** · Built by [@sixfingerdev](https://github.com/sixfingerdev)
 
 ---
 
-⭐ **If this saved you time, a star helps a lot!**
+ **If this saved you time, a star helps a lot!**
