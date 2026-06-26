@@ -67,7 +67,7 @@ with requests.post(url, headers=headers, json=body, stream=True) as r:
 | `allam-2-7b` | Allam 2 7B | 7B | Turkish / Arabic | Free+ |
 | `step-3.5-flash` | Step 3.5 Flash | — | Multilingual | Free+ |
 | `nemotron-3-super-120b-a12b` | Nemotron 3 Super 120B A12B | 120B | Multilingual | Free+ |
-| `big-pickle` | GLM-4.6 | — | Multilingual | Free+ |
+| `glm-46` | GLM-4.6 | — | Multilingual | Free+ |
 | `deepseek-v4-flash-free` | DeepSeek V4 Flash | — | Multilingual | Free+ |
 | `mimo-v2.5-free` | Mimo V2.5 | — | Multilingual | Free+ |
 | `north-mini-code-free` | North Mini Code | — | Multilingual | Free+ |
