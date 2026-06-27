@@ -3,14 +3,14 @@
 </p>
 
 <h1 align="center">Sixfinger API</h1>
-<p align="center"><strong>Single API. 41 models. 10-20x faster than typical direct endpoints.</strong></p>
+<p align="center"><strong>Single API. 41 models. Free Claude access included. 10-20x faster than typical direct endpoints.</strong></p>
 
-Sixfinger is a production-ready AI gateway that routes requests to the best available model family with streaming, plan-aware access control, and multilingual performance built in.
+Sixfinger is a production-ready AI gateway that routes requests to the best available model family — now with 13 Claude models (Sonnet, Haiku, Opus, Fable) alongside 28+ other LLMs. Streaming, plan-aware access control, and multilingual performance built in.
 
 [![Free Plan](https://img.shields.io/badge/Free%20Plan-Available-brightgreen)](https://sfapi.pythonanywhere.com)
+[![Free Claude API](https://img.shields.io/badge/Free%20Claude%20API-Included-purple)](https://sfapi.pythonanywhere.com)
 [![Models](https://img.shields.io/badge/Models-41-blue)](https://sfapi.pythonanywhere.com/docs)
 [![Streaming](https://img.shields.io/badge/Streaming-SSE-orange)](https://sfapi.pythonanywhere.com/docs)
-[![No Daily Cap](https://img.shields.io/badge/Daily%20Cap-Removed-success)](https://sfapi.pythonanywhere.com)
 
 ---
 
@@ -18,11 +18,33 @@ Sixfinger is a production-ready AI gateway that routes requests to the best avai
 
 | Provider | Speed |
 |----------|-------|
-| **Sixfinger API** | **~1,100 char/s** |
-| Claude-class APIs | ~80–120 char/s |
+| **Sixfinger API (Claude route)** | **~1,100 char/s** |
+| Direct Claude API | ~80–120 char/s |
 | Typical GPT APIs | ~50–100 char/s |
 
-One key. One endpoint. No provider switching.
+One key. One endpoint. 13 Claude models included free. No provider switching.
+
+---
+
+## 🧠 Free Claude API Access
+
+Sixfinger now includes **free Claude API access** — use Claude Sonnet 4.6, Sonnet 4.5, Haiku 4.5, and Sonnet 4 at no cost on the Free plan. Upgrade to Starter+ for Claude Opus, Fable, and 2.5x Fast variants.
+
+| Key | Model | Speed | Plan |
+|-----|-------|-------|------|
+| `claude-sonnet-4-6` | Claude Sonnet 4.6 | Fast | **Free** |
+| `claude-haiku-4-5` | Claude Haiku 4.5 | Very Fast | **Free** |
+| `claude-sonnet-4-5` | Claude Sonnet 4.5 | Fast | **Free** |
+| `claude-sonnet-4` | Claude Sonnet 4 | Fast | **Free** |
+| `claude-fable-5` | Claude Fable 5 | Fast | Starter+ |
+| `claude-opus-4-8` | Claude Opus 4.8 | Fast | Starter+ |
+| `claude-opus-4-7` | Claude Opus 4.7 | Fast | Starter+ |
+| `claude-opus-4-5` | Claude Opus 4.5 | Fast | Starter+ |
+| `claude-opus-4-1` | Claude Opus 4.1 | Fast | Starter+ |
+| `claude-opus-4` | Claude Opus 4 | Fast | Starter+ |
+| `claude-opus-4-8-fast` | Opus 4.8 Fast 2.5x | Very Fast | Starter+ |
+| `claude-opus-4-7-fast` | Opus 4.7 Fast 2.5x | Very Fast | Starter+ |
+| `claude-opus-4-6-fast` | Opus 4.6 Fast 2.5x | Very Fast | Starter+ |
 
 ---
 
@@ -32,13 +54,13 @@ One key. One endpoint. No provider switching.
 curl -X POST https://sfapi.pythonanywhere.com/api/v1/chat \
   -H "X-API-Key: YOUR_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"message": "Hello!", "model": "llama-8b-instant", "stream": false}'
+  -d '{"message": "Hello!", "model": "claude-sonnet-4-6", "stream": false}'
 ```
 
 ```json
 {
   "response": "Hello! How can I help you?",
-  "model_key": "llama-8b-instant",
+  "model_key": "claude-sonnet-4-6",
   "usage": { "total_tokens": 12 }
 }
 ```
@@ -50,7 +72,7 @@ import requests
 
 url = "https://sfapi.pythonanywhere.com/api/v1/chat"
 headers = {"X-API-Key": "YOUR_KEY", "Content-Type": "application/json"}
-body = {"message": "Tell me a story", "model": "llama-8b-instant", "stream": True}
+body = {"message": "Tell me a story", "model": "claude-haiku-4-5", "stream": True}
 
 with requests.post(url, headers=headers, json=body, stream=True) as r:
     for chunk in r.iter_content(chunk_size=None):
@@ -59,7 +81,7 @@ with requests.post(url, headers=headers, json=body, stream=True) as r:
 
 ---
 
-## Available Models
+## All 41 Models
 
 | Key | Model | Size | Language | Plan |
 |-----|-------|------|----------|------|
@@ -72,16 +94,6 @@ with requests.post(url, headers=headers, json=body, stream=True) as r:
 | `mimo-v2.5-free` | Mimo V2.5 | — | Multilingual | Free+ |
 | `north-mini-code-free` | North Mini Code | — | Multilingual | Free+ |
 | `nemotron-3-ultra-free` | Nemotron 3 Ultra | — | Multilingual | Free+ |
-| `gpt4-nano` | GPT-4.1 Nano | Nano | Multilingual | Starter+ |
-| `qwen3-32b` | Qwen3 32B | 32B | Turkish / Chinese | Starter+ |
-| `llama-70b` | Llama 3.3 70B | 70B | Multilingual | Starter+ |
-| `llama-scout-17b` | Llama Scout 17B | 17B | Multilingual | Starter+ |
-| `llama-pg2-86m` | Llama Prompt Guard 2 86M | 86M | Multilingual | Starter+ |
-| `gpt-oss-20b` | GPT-OSS 20B | 20B | Multilingual | Starter+ |
-| `glm-4.5-air` | GLM 4.5 Air | — | Multilingual | Starter+ |
-| `qwen3-coder` | Qwen3 Coder | — | Multilingual | Starter+ |
-| `lfm-2.5-1.2b-thinking` | LFM 2.5 1.2B Thinking | 1.2B | Multilingual | Starter+ |
-| `gpt-oss-120b` | GPT-OSS 120B | 120B | Multilingual | Pro+ |
 | `deepseek-v4-flash` | DeepSeek V4 Flash | — | Multilingual | Free+ |
 | `deepseek-v4-pro` | DeepSeek V4 Pro | — | Multilingual | Free+ |
 | `hy3-preview` | HY3 Preview | — | Multilingual | Free+ |
@@ -95,6 +107,15 @@ with requests.post(url, headers=headers, json=body, stream=True) as r:
 | `claude-haiku-4-5` | Claude Haiku 4.5 | — | Multilingual | Free+ |
 | `claude-sonnet-4-5` | Claude Sonnet 4.5 | — | Multilingual | Free+ |
 | `claude-sonnet-4` | Claude Sonnet 4 | — | Multilingual | Free+ |
+| `gpt4-nano` | GPT-4.1 Nano | Nano | Multilingual | Starter+ |
+| `qwen3-32b` | Qwen3 32B | 32B | Turkish / Chinese | Starter+ |
+| `llama-70b` | Llama 3.3 70B | 70B | Multilingual | Starter+ |
+| `llama-scout-17b` | Llama Scout 17B | 17B | Multilingual | Starter+ |
+| `llama-pg2-86m` | Llama Prompt Guard 2 86M | 86M | Multilingual | Starter+ |
+| `gpt-oss-20b` | GPT-OSS 20B | 20B | Multilingual | Starter+ |
+| `glm-4.5-air` | GLM 4.5 Air | — | Multilingual | Starter+ |
+| `qwen3-coder` | Qwen3 Coder | — | Multilingual | Starter+ |
+| `lfm-2.5-1.2b-thinking` | LFM 2.5 1.2B Thinking | 1.2B | Multilingual | Starter+ |
 | `claude-fable-5` | Claude Fable 5 | — | Multilingual | Starter+ |
 | `claude-opus-4-8` | Claude Opus 4.8 | — | Multilingual | Starter+ |
 | `claude-opus-4-7` | Claude Opus 4.7 | — | Multilingual | Starter+ |
@@ -104,6 +125,7 @@ with requests.post(url, headers=headers, json=body, stream=True) as r:
 | `claude-opus-4-8-fast` | Claude Opus 4.8 Fast | — | Multilingual | Starter+ |
 | `claude-opus-4-7-fast` | Claude Opus 4.7 Fast | — | Multilingual | Starter+ |
 | `claude-opus-4-6-fast` | Claude Opus 4.6 Fast | — | Multilingual | Starter+ |
+| `gpt-oss-120b` | GPT-OSS 120B | 120B | Multilingual | Pro+ |
 
 ---
 
@@ -116,7 +138,7 @@ with requests.post(url, headers=headers, json=body, stream=True) as r:
 | Pro | 15 USD | 75,000 | 7,500,000 | 50 | 1,500 |
 | Plus | 39 USD | 500,000 | 50,000,000 | 150 | 5,000 |
 
-All plans include streaming and monthly quota tracking without daily caps. [Start free →](https://sfapi.pythonanywhere.com)
+All plans include streaming, monthly quota tracking without daily caps, and Claude model access. [Start free →](https://sfapi.pythonanywhere.com)
 
 ---
 
@@ -130,12 +152,12 @@ All plans include streaming and monthly quota tracking without daily caps. [Star
 
 ## 🛠 What You Can Build
 
-- **Support bots** - low-latency streaming responses with plan-safe quotas
-- **Coding assistants** - route heavy tasks to GPT-OSS, Qwen3 Coder, or Cohere's North Mini Code
-- **Multilingual apps** - Turkish-focused and multilingual models under one key
-- **Content pipelines** - scale generation with usage analytics and upgrade paths
-- **Internal automation** - summarization, tagging, and classification bots
-- **Reasoning workloads** - step, DeepSeek, and Nemotron models for chain-of-thought tasks
+- **Coding assistants** — Claude Opus and Sonnet for complex code generation, Qwen3 Coder for specialized tasks
+- **Support bots** — Claude Haiku for low-latency streaming, Llama 8B for general chat
+- **Content pipelines** — Claude Fable and Opus for creative writing at scale
+- **Multilingual apps** — Claude, Qwen3, and Allam models under one key
+- **Internal automation** — summarization, tagging, and classification with Claude Sonnet
+- **Reasoning workloads** — DeepSeek, Nemotron, and Claude Opus for chain-of-thought tasks
 
 ---
 
