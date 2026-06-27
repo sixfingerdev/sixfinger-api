@@ -18,8 +18,8 @@ Sixfinger is a production-ready AI gateway that routes requests to the best avai
 
 | Provider | Speed |
 |----------|-------|
-| **Sixfinger API (Claude route)** | **~1,100 char/s** |
-| Direct Claude API | ~80–120 char/s |
+| **Sixfinger API** | **~1,100 char/s** |
+| Claude API | ~80–120 char/s |
 | Typical GPT APIs | ~50–100 char/s |
 
 One key. One endpoint. 13 Claude models included free. No provider switching.
