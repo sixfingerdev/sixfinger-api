@@ -3,12 +3,12 @@
 </p>
 
 <h1 align="center">Sixfinger API</h1>
-<p align="center"><strong>Single API. 19 models. 10-20x faster than typical direct endpoints.</strong></p>
+<p align="center"><strong>Single API. 41 models. 10-20x faster than typical direct endpoints.</strong></p>
 
 Sixfinger is a production-ready AI gateway that routes requests to the best available model family with streaming, plan-aware access control, and multilingual performance built in.
 
 [![Free Plan](https://img.shields.io/badge/Free%20Plan-Available-brightgreen)](https://sfapi.pythonanywhere.com)
-[![Models](https://img.shields.io/badge/Models-19-blue)](https://sfapi.pythonanywhere.com/docs)
+[![Models](https://img.shields.io/badge/Models-41-blue)](https://sfapi.pythonanywhere.com/docs)
 [![Streaming](https://img.shields.io/badge/Streaming-SSE-orange)](https://sfapi.pythonanywhere.com/docs)
 [![No Daily Cap](https://img.shields.io/badge/Daily%20Cap-Removed-success)](https://sfapi.pythonanywhere.com)
 
@@ -68,7 +68,7 @@ with requests.post(url, headers=headers, json=body, stream=True) as r:
 | `step-3.5-flash` | Step 3.5 Flash | — | Multilingual | Free+ |
 | `nemotron-3-super-120b-a12b` | Nemotron 3 Super 120B A12B | 120B | Multilingual | Free+ |
 | `glm-46` | GLM-4.6 | — | Multilingual | Free+ |
-| `deepseek-v4-flash-free` | DeepSeek V4 Flash | — | Multilingual | Free+ |
+| `deepseek-v4-flash-free` | DeepSeek V4 Flash Free | — | Multilingual | Free+ |
 | `mimo-v2.5-free` | Mimo V2.5 | — | Multilingual | Free+ |
 | `north-mini-code-free` | North Mini Code | — | Multilingual | Free+ |
 | `nemotron-3-ultra-free` | Nemotron 3 Ultra | — | Multilingual | Free+ |
@@ -82,6 +82,28 @@ with requests.post(url, headers=headers, json=body, stream=True) as r:
 | `qwen3-coder` | Qwen3 Coder | — | Multilingual | Starter+ |
 | `lfm-2.5-1.2b-thinking` | LFM 2.5 1.2B Thinking | 1.2B | Multilingual | Starter+ |
 | `gpt-oss-120b` | GPT-OSS 120B | 120B | Multilingual | Pro+ |
+| `deepseek-v4-flash` | DeepSeek V4 Flash | — | Multilingual | Free+ |
+| `deepseek-v4-pro` | DeepSeek V4 Pro | — | Multilingual | Free+ |
+| `hy3-preview` | HY3 Preview | — | Multilingual | Free+ |
+| `qwen3.7-plus` | Qwen 3.7 Plus | — | Multilingual | Free+ |
+| `step-3.7-flash` | Step 3.7 Flash | — | Multilingual | Free+ |
+| `gemini-3.1-flash-lite` | Gemini 3.1 Flash Lite | — | Multilingual | Free+ |
+| `gemini-3-flash-preview` | Gemini 3 Flash Preview | — | Multilingual | Free+ |
+| `gpt-5.4-mini` | GPT-5.4 Mini | — | Multilingual | Free+ |
+| `minimax-m3` | MiniMax M3 | — | Multilingual | Free+ |
+| `claude-sonnet-4-6` | Claude Sonnet 4.6 | — | Multilingual | Free+ |
+| `claude-haiku-4-5` | Claude Haiku 4.5 | — | Multilingual | Free+ |
+| `claude-sonnet-4-5` | Claude Sonnet 4.5 | — | Multilingual | Free+ |
+| `claude-sonnet-4` | Claude Sonnet 4 | — | Multilingual | Free+ |
+| `claude-fable-5` | Claude Fable 5 | — | Multilingual | Starter+ |
+| `claude-opus-4-8` | Claude Opus 4.8 | — | Multilingual | Starter+ |
+| `claude-opus-4-7` | Claude Opus 4.7 | — | Multilingual | Starter+ |
+| `claude-opus-4-5` | Claude Opus 4.5 | — | Multilingual | Starter+ |
+| `claude-opus-4-1` | Claude Opus 4.1 | — | Multilingual | Starter+ |
+| `claude-opus-4` | Claude Opus 4 | — | Multilingual | Starter+ |
+| `claude-opus-4-8-fast` | Claude Opus 4.8 Fast | — | Multilingual | Starter+ |
+| `claude-opus-4-7-fast` | Claude Opus 4.7 Fast | — | Multilingual | Starter+ |
+| `claude-opus-4-6-fast` | Claude Opus 4.6 Fast | — | Multilingual | Starter+ |
 
 ---
 
