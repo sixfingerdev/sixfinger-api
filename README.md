@@ -163,7 +163,7 @@ All plans include streaming, monthly quota tracking without daily caps, and Clau
 
 ## Documentation
 
-Full API docs at [sfapi.pythonanywhere.com/docs](https://sfapi.pythonanywhere.com/docs)
+Full API docs at [api.sixfinger.live/docs](https://api.sixfinger.live/docs)
 
 **Endpoints:**
 
