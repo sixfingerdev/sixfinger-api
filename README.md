@@ -7,10 +7,10 @@
 
 Sixfinger is a production-ready AI gateway that routes requests to the best available model family — now with 13 Claude models (Sonnet, Haiku, Opus, Fable) alongside 28+ other LLMs. Streaming, plan-aware access control, and multilingual performance built in.
 
-[![Free Plan](https://img.shields.io/badge/Free%20Plan-Available-brightgreen)](https://sfapi.pythonanywhere.com)
-[![Free Claude API](https://img.shields.io/badge/Free%20Claude%20API-Included-purple)](https://sfapi.pythonanywhere.com)
-[![Models](https://img.shields.io/badge/Models-41-blue)](https://sfapi.pythonanywhere.com/docs)
-[![Streaming](https://img.shields.io/badge/Streaming-SSE-orange)](https://sfapi.pythonanywhere.com/docs)
+[![Free Plan](https://img.shields.io/badge/Free%20Plan-Available-brightgreen)](https://api.sixfinger.live)
+[![Free Claude API](https://img.shields.io/badge/Free%20Claude%20API-Included-purple)](https://api.sixfinger.live)
+[![Models](https://img.shields.io/badge/Models-41-blue)](https://api.sixfinger.live)
+[![Streaming](https://img.shields.io/badge/Streaming-SSE-orange)](https://api.sixfinger.live)
 
 ---
 
@@ -51,7 +51,7 @@ Sixfinger now includes **free Claude API access** — use Claude Sonnet 4.6, Son
 ## Quick Start
 
 ```bash
-curl -X POST https://sfapi.pythonanywhere.com/api/v1/chat \
+curl -X POST https://api.sixfinger.live/api/v1/chat \
   -H "X-API-Key: YOUR_KEY" \
   -H "Content-Type: application/json" \
   -d '{"message": "Hello!", "model": "claude-sonnet-4-6", "stream": false}'
@@ -70,7 +70,7 @@ curl -X POST https://sfapi.pythonanywhere.com/api/v1/chat \
 ```python
 import requests
 
-url = "https://sfapi.pythonanywhere.com/api/v1/chat"
+url = "https://api.sixfinger.live/api/v1/chat"
 headers = {"X-API-Key": "YOUR_KEY", "Content-Type": "application/json"}
 body = {"message": "Tell me a story", "model": "claude-haiku-4-5", "stream": True}
 
@@ -138,13 +138,13 @@ with requests.post(url, headers=headers, json=body, stream=True) as r:
 | Pro | 15 USD | 75,000 | 7,500,000 | 50 | 1,500 |
 | Plus | 39 USD | 500,000 | 50,000,000 | 150 | 5,000 |
 
-All plans include streaming, monthly quota tracking without daily caps, and Claude model access. [Start free →](https://sfapi.pythonanywhere.com)
+All plans include streaming, monthly quota tracking without daily caps, and Claude model access. [Start free →](https://api.sixfinger.live)
 
 ---
 
 ## Get Your API Key
 
-1. Sign up at [sfapi.pythonanywhere.com](https://sfapi.pythonanywhere.com)
+1. Sign up at [https://api.sixfinger.live](https://api.sixfinger.live)
 2. Verify your email
 3. Grab your API key from the dashboard
 
