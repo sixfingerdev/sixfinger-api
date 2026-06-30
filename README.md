@@ -99,20 +99,6 @@ Sixfinger includes **free Claude API access** — use Claude Sonnet 4.6, Sonnet 
 
 ---
 
-## G4F Models (Free, All Plans)
-
-| Key | Model | Provider |
-|-----|-------|----------|
-| `gpt-5` | GPT-5 | G4F |
-| `gpt-5.4` | GPT-5.4 | G4F |
-| `gpt-5.5` | GPT-5.5 | G4F |
-| `glm-5` | GLM-5 | G4F |
-| `kimi-k2.7-code` | Kimi K2.7 Code | G4F |
-| `deepseek-v3.2` | DeepSeek V3.2 | G4F |
-| `deepseek-v4-flash` | DeepSeek V4 Flash | G4F |
-
----
-
 ## All Models
 
 ### Free Plan (20 models)
@@ -132,13 +118,13 @@ Sixfinger includes **free Claude API access** — use Claude Sonnet 4.6, Sonnet 
 | `claude-haiku-4-5` | Claude Haiku 4.5 | Anthropic |
 | `claude-sonnet-4-5` | Claude Sonnet 4.5 | Anthropic |
 | `claude-sonnet-4` | Claude Sonnet 4 | Anthropic |
-| `gpt-5` | GPT-5 | OpenAI (G4F) |
-| `gpt-5.4` | GPT-5.4 | OpenAI (G4F) |
-| `gpt-5.5` | GPT-5.5 | OpenAI (G4F) |
-| `glm-5` | GLM-5 | Zhipu AI (G4F) |
-| `kimi-k2.7-code` | Kimi K2.7 Code | Moonshot AI (G4F) |
-| `deepseek-v3.2` | DeepSeek V3.2 | DeepSeek (G4F) |
-| `deepseek-v4-flash` | DeepSeek V4 Flash | DeepSeek (G4F) |
+| `gpt-5` | GPT-5 | OpenAI |
+| `gpt-5.4` | GPT-5.4 | OpenAI |
+| `gpt-5.5` | GPT-5.5 | OpenAI |
+| `glm-5` | GLM-5 | Zhipu AI |
+| `kimi-k2.7-code` | Kimi K2.7 Code | Moonshot AI |
+| `deepseek-v3.2` | DeepSeek V3.2 | DeepSeek |
+| `deepseek-v4-flash` | DeepSeek V4 Flash | DeepSeek |
 
 ### Starter+ Plan (additional models)
 
@@ -175,12 +161,32 @@ Sixfinger includes **free Claude API access** — use Claude Sonnet 4.6, Sonnet 
 
 | Plan | Price | Requests/mo | Tokens/mo | RPM | RPH |
 |------|------:|------------:|----------:|----:|----:|
-| Free | 0 USD | 200 | 20,000 | 3 | 60 |
-| Starter | 5 USD | 3,000 | 300,000 | 15 | 300 |
-| Pro | 15 USD | 75,000 | 7,500,000 | 50 | 1,500 |
-| Plus | 39 USD | 500,000 | 50,000,000 | 150 | 5,000 |
+| Free | 0 USD | 1,000 | 100,000 | 10 | 200 |
+| Starter | 5 USD | 10,000 | 1,000,000 | 30 | 600 |
+| Pro | 15 USD | 150,000 | 15,000,000 | 100 | 3,000 |
+| Plus | 39 USD | 1,000,000 | 100,000,000 | 300 | 10,000 |
 
 All plans include streaming, monthly quota tracking, and Claude model access. [Start free →](https://api.sixfinger.live)
+
+---
+
+## Developer Reward Program
+
+Build an app with Sixfinger API and share it on our [Discord server](https://discord.gg/AtwqzqpwR8) to earn a **free Starter Plan** for 30 days!
+
+**How to participate:**
+1. Build something cool with Sixfinger API
+2. Share your project in the `#showcase` channel on Discord
+3. Include a link to your app/repo
+4. Our team will review and approve your submission
+5. Get upgraded to Starter Plan automatically!
+
+**Starter Plan benefits:**
+- 30 requests per minute
+- 600 requests per hour  
+- 10,000 requests per month
+- 1,000,000 tokens per month
+- Access to all models including Claude Opus
 
 ---
 
