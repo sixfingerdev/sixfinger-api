@@ -1,6 +1,6 @@
 """Sixfinger API Models"""
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Optional, Dict, Any, List
 
 @dataclass
@@ -19,6 +19,7 @@ class ChatResponse:
     usage: UsageStats
     finish_reason: str
     metadata: Dict[str, Any]
+    reasoning_content: Optional[str] = None
 
 @dataclass
 class Message:
@@ -33,3 +34,4 @@ class ModelInfo:
     name: str
     size: str
     available_plans: List[str]
+    owned_by: Optional[str] = None

@@ -51,32 +51,72 @@ Sixfinger now includes **free Claude API access** — use Claude Sonnet 4.6, Son
 ## Quick Start
 
 ```bash
-curl -X POST https://api.sixfinger.live/api/v1/chat \
+curl -X POST https://api.sixfinger.live/v1/chat/completions \
   -H "X-API-Key: YOUR_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"message": "Hello!", "model": "claude-sonnet-4-6", "stream": false}'
+  -d '{"model": "claude-sonnet-4-6", "messages": [{"role": "user", "content": "Hello!"}]}'
 ```
 
 ```json
 {
-  "response": "Hello! How can I help you?",
-  "model_key": "claude-sonnet-4-6",
-  "usage": { "total_tokens": 12 }
+  "id": "chatcmpl-...",
+  "object": "chat.completion",
+  "model": "claude-sonnet-4-6",
+  "choices": [{
+    "index": 0,
+    "message": {"role": "assistant", "content": "Hello! How can I help you?"},
+    "finish_reason": "stop"
+  }],
+  "usage": {"prompt_tokens": 10, "completion_tokens": 8, "total_tokens": 18}
 }
+```
+
+**Python SDK:**
+
+```bash
+pip install sixfinger
+```
+
+```python
+from sixfinger import API
+
+client = API(api_key="YOUR_KEY")
+response = client.chat("Hello!", model="claude-sonnet-4-6")
+print(response.content)
+```
+
+**OpenAI SDK:**
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://api.sixfinger.live/v1",
+    api_key="YOUR_KEY"
+)
+
+response = client.chat.completions.create(
+    model="claude-sonnet-4-6",
+    messages=[{"role": "user", "content": "Hello!"}]
+)
+print(response.choices[0].message.content)
 ```
 
 **Streaming (SSE):**
 
 ```python
-import requests
+from openai import OpenAI
 
-url = "https://api.sixfinger.live/api/v1/chat"
-headers = {"X-API-Key": "YOUR_KEY", "Content-Type": "application/json"}
-body = {"message": "Tell me a story", "model": "claude-haiku-4-5", "stream": True}
+client = OpenAI(base_url="https://api.sixfinger.live/v1", api_key="YOUR_KEY")
 
-with requests.post(url, headers=headers, json=body, stream=True) as r:
-    for chunk in r.iter_content(chunk_size=None):
-        print(chunk.decode(), end="", flush=True)
+for chunk in client.chat.completions.create(
+    model="claude-haiku-4-5",
+    messages=[{"role": "user", "content": "Tell me a story"}],
+    stream=True
+):
+    content = chunk.choices[0].delta.content
+    if content:
+        print(content, end="", flush=True)
 ```
 
 ---
@@ -168,15 +208,11 @@ Full API docs at [api.sixfinger.live/docs](https://api.sixfinger.live/docs)
 **Endpoints:**
 
 ```
-POST /api/v1/chat                              — Chat (stream or sync)
+POST /v1/chat/completions                      — OpenAI-compatible chat (stream or sync)
+GET  /v1/models                                — List available models (OpenAI-compatible)
+GET  /v1/models/:id                            — Get a single model
+POST /api/v1/chat                              — Legacy chat (still supported)
 GET  /api/v1/stats                             — Usage stats
-GET  /api/v1/conversations                     — List conversations
-POST /api/v1/conversations                     — Create conversation
-GET  /api/v1/conversations/:id                 — Get conversation
-PATCH /api/v1/conversations/:id                — Update conversation
-DELETE /api/v1/conversations/:id               — Delete conversation
-POST /api/v1/conversations/:id/chat            — Chat within a conversation
-GET  /api/v1/conversations/:id/messages        — List messages in a conversation
 GET  /health                                   — Health check
 ```
 

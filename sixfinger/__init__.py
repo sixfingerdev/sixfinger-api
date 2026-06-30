@@ -22,7 +22,7 @@ Examples:
   >>> output = model.generate(b'Hello', length=100)
 """
 
-__version__ = "2.0.0"
+__version__ = "2.1.1"
 __author__ = "Sixfinger Team"
 __email__ = "sixfingerdev@gmail.com"
 
