@@ -12,7 +12,7 @@
   <a href="https://pypi.org/project/sixfinger/"><img src="https://img.shields.io/badge/PyPI-sixfinger-orange" alt="PyPI"></a>
 </p>
 
-Sixfinger is a production-ready AI gateway with **OpenAI-compatible endpoints**. Route requests to 40+ models — including 13 Claude models (Sonnet, Haiku, Opus, Fable) and 7 G4F models (GPT-5, GLM-5, Kimi K2.7, DeepSeek V3.2/V4). Use the official OpenAI SDK with your Sixfinger key.
+Sixfinger is a production-ready AI gateway with **OpenAI-compatible endpoints**. Route requests to 40+ models — including 13 Claude models (Sonnet, Haiku, Opus, Fable) and other popular models (GPT-5, GLM-5, Kimi K2.7, DeepSeek V3.2/V4). Use the official OpenAI SDK with your Sixfinger key.
 
 ---
 
